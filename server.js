@@ -1,6 +1,5 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require("path");
 
 // Tells node that we are creating an "express" server
 var app = express();
@@ -18,8 +17,8 @@ app.use(bodyParser.json());
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-require(path.join(__dirname, "app", "routing", "apiRoutes"))(app, path);
-require(path.join(__dirname, "app", "routing", "htmlRoutes"))(app, path);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 // =============================================================================
 // LISTENER
